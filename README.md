@@ -4,6 +4,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/graphenex.svg?style=flat-square)](https://pypi.org/project/graphenex)
 [![AUR](https://img.shields.io/aur/version/graphenex.svg?style=flat-square)](https://aur.archlinux.org/packages/graphenex/)
+[![Docker Build](https://img.shields.io/docker/cloud/build/graphenex/graphenex.svg?style=flat-square)](https://hub.docker.com/r/graphenex/graphenex/builds)
 [![Issues](https://img.shields.io/github/issues/grapheneX/grapheneX.svg?style=flat-square)](https://github.com/grapheneX/grapheneX/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/grapheneX/grapheneX.svg?style=flat-square)](https://github.com/grapheneX/grapheneX/pulls)
 [![Stars](https://img.shields.io/github/stars/grapheneX/grapheneX.svg?style=flat-square)](https://github.com/grapheneX/grapheneX/stargazers)
@@ -39,6 +40,8 @@ Currently, grapheneX support the hardening sections below. Each of these namespa
 • Filesystem  
 • Other
 
+Listen to The Python Podcast.\_\_init\_\_: [Automate Your Server Security With GrapheneX - Episode 237](https://www.pythonpodcast.com/graphenex-server-security-episode-237/)
+
 ## Installation
 
 You can install `grapheneX` with `pip`. Usually this is the easiest way:
@@ -46,11 +49,16 @@ You can install `grapheneX` with `pip`. Usually this is the easiest way:
 ```
 pip install graphenex
 ```
+Or if you get an error try:
+
+```
+python3 -m pip install graphenex
+```
 
 Also it's possible to run the `setup.py` for installation as follows:
 
 ```
-python setup.py install 
+python3 setup.py install 
 ```
 
 The commands below can be used for testing the project without installation:
@@ -65,6 +73,7 @@ pipenv run python -m graphenex
 * [Flask-SocketIO](https://flask-socketio.readthedocs.io/en/latest/)
   *  [Flask](http://flask.pocoo.org/)
 * [coloredlogs](https://pypi.org/project/coloredlogs/)
+* [colorama](https://pypi.org/project/colorama/)
 * [terminaltables](https://pypi.org/project/terminaltables/)
 * [PyInquirer](https://pypi.org/project/PyInquirer/)
 
@@ -327,6 +336,22 @@ There's a menu available in the web interface for adding new modules.
 
 ![Adding Modules](https://user-images.githubusercontent.com/24392180/60551262-6c74d600-9d33-11e9-8c3e-f553fafdda74.gif)
 
+### System Monitor
+
+It's possible to display various system information such as disk usage and network state at the Web interface.
+
+![System Monitor](https://user-images.githubusercontent.com/24392180/64130757-12dd6600-cdcd-11e9-9be8-39395e104974.gif)
+
+## Docker
+### Building the image
+```sh
+docker build -t graphenex .
+```
+### Running the container
+```sh
+docker run --rm --name graphenex -p 8080:8080 --privileged graphenex
+```
+
 ## Screenshots
 
 ![Screenshot I](https://user-images.githubusercontent.com/24392180/60615641-47866e80-9dd8-11e9-92fe-dfa8874db8fd.jpg)
@@ -343,6 +368,8 @@ There's a menu available in the web interface for adding new modules.
 
 * Add new modules for Linux and Windows.
 
+* Add `-w` support to Docker image
+
 ## Contributing
 
 For contributing to this project, see [CONTRIBUTING.md](./CONTRIBUTING.md)
@@ -355,12 +382,18 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore -->
 <table>
   <tr>
-    <td align="center"><a href="http://k3pwn.me"><img src="https://avatars1.githubusercontent.com/u/24392180?v=4" width="100px;" alt="k3"/><br /><sub><b>k3</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=KeyLo99" title="Code">💻</a> <a href="https://github.com/grapheneX/grapheneX/commits?author=KeyLo99" title="Documentation">📖</a> <a href="#projectManagement-KeyLo99" title="Project Management">📆</a> <a href="#question-KeyLo99" title="Answering Questions">💬</a> <a href="#ideas-KeyLo99" title="Ideas, Planning, & Feedback">🤔</a> <a href="#review-KeyLo99" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/orhun"><img src="https://avatars1.githubusercontent.com/u/24392180?v=4" width="100px;" alt="orhun"/><br /><sub><b>orhun</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=orhun" title="Code">💻</a> <a href="https://github.com/grapheneX/grapheneX/commits?author=orhun" title="Documentation">📖</a> <a href="#projectManagement-orhun" title="Project Management">📆</a> <a href="#question-orhun" title="Answering Questions">💬</a> <a href="#ideas-orhun" title="Ideas, Planning, & Feedback">🤔</a> <a href="#review-orhun" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/bufgix"><img src="https://avatars1.githubusercontent.com/u/22038798?v=4" width="100px;" alt="Faruk"/><br /><sub><b>Faruk</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=bufgix" title="Code">💻</a> <a href="#design-bufgix" title="Design">🎨</a> <a href="#platform-bufgix" title="Packaging/porting to new platform">📦</a> <a href="#ideas-bufgix" title="Ideas, Planning, & Feedback">🤔</a> <a href="#review-bufgix" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/EnesOkutan"><img src="https://avatars0.githubusercontent.com/u/36725317?v=4" width="100px;" alt="EnesOkutan"/><br /><sub><b>EnesOkutan</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=EnesOkutan" title="Code">💻</a> <a href="#ideas-EnesOkutan" title="Ideas, Planning, & Feedback">🤔</a> <a href="#review-EnesOkutan" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/afk"><img src="https://avatars0.githubusercontent.com/u/22278039?v=4" width="100px;" alt="Efe Aydın"/><br /><sub><b>Efe Aydın</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=afk" title="Code">💻</a> <a href="#ideas-afk" title="Ideas, Planning, & Feedback">🤔</a> <a href="#review-afk" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/ibanez75612"><img src="https://avatars0.githubusercontent.com/u/26774223?v=4" width="100px;" alt="ibanez75612"/><br /><sub><b>ibanez75612</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=ibanez75612" title="Code">💻</a> <a href="#platform-ibanez75612" title="Packaging/porting to new platform">📦</a> <a href="#review-ibanez75612" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://www.emperorfederico.info"><img src="https://avatars1.githubusercontent.com/u/37400853?v=4" width="100px;" alt="Emperor  Federico"/><br /><sub><b>Emperor  Federico</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=emperorfederico" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/kondanta"><img src="https://avatars1.githubusercontent.com/u/16501501?v=4" width="100px;" alt="Taylan"/><br /><sub><b>Taylan</b></sub></a><br /><a href="#infra-kondanta" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/zero77"><img src="https://avatars3.githubusercontent.com/u/16563034?v=4" width="100px;" alt="zero77"/><br /><sub><b>zero77</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=zero77" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://privateger.me/"><img src="https://avatars0.githubusercontent.com/u/29523614?v=4" width="100px;" alt="Marc"/><br /><sub><b>Marc</b></sub></a><br /><a href="#content-PerhapsSomeone" title="Content">🖋</a></td>
+    <td align="center"><a href="http://mercode.org"><img src="https://avatars1.githubusercontent.com/u/40173707?v=4" width="100px;" alt="Tan Siret G. AKINCI"/><br /><sub><b>Tan Siret G. AKINCI</b></sub></a><br /><a href="https://github.com/grapheneX/grapheneX/commits?author=Yutyo" title="Documentation">📖</a></td>
   </tr>
 </table>
 

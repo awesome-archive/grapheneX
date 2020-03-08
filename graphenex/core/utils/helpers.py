@@ -3,9 +3,9 @@
 
 from graphenex.core.hrd import HardenMethod
 from graphenex.core.utils.logcl import GraphenexLogger
+from colorama import init, Fore, Style
 
 import argparse
-import sys
 import os
 import importlib.util
 import inspect
@@ -42,22 +42,14 @@ def parse_cli_args():
     args = vars(parser.parse_args())
     return args
 
+
 def print_header():
     """
     Shows project logo in ASCII format,
     project description and repository
     Checks dependencies for colored output
     """
-
-    def import_colorama():
-        try:
-            global init, Fore, Style, colored
-            from colorama import init, Fore, Style
-            init()
-        except:
-            print("colorama module not found.")
-            sys.exit()
-    import_colorama()
+    init()
     project_desc = Style.BRIGHT + Fore.WHITE + """
                  +ho:`
            `:ohh. /dddy/.
@@ -65,7 +57,7 @@ def print_header():
     `:ohdddddddddds``sddddds- :.      """+Style.NORMAL+"~ Automated System Hardening Framework"+Style.BRIGHT+"""
     +ddddddddddddddh. /dds- /hdd      """+Style.NORMAL+"+ Created for Linux & Windows."+Style.BRIGHT+"""
     +dddddddddddddddd/ .. /hdddd      """+Style.NORMAL+"> https://github.com/grapheneX"+Style.BRIGHT+"""
-    +ddddddddddddddddo``/hdddddd      """+Style.NORMAL+"- Copyright (C) 2019"+Style.BRIGHT+"""
+    +ddddddddddddddddo``/hdddddd      """+Style.NORMAL+"- Copyright (C) 2019-2020"+Style.BRIGHT+"""
     +ddddddddddddddo.`+ddddddddd
     `-/+oyhddddd+``+dddddddddddd
     :o+/-.` `-` .syddddddddddddd
@@ -79,6 +71,7 @@ def print_header():
     logger.info("grapheneX started.")
     check_privileges()
 
+
 def check_os():
     """
     Returns operating system information.
@@ -87,9 +80,10 @@ def check_os():
     """
     return 1 if __import__('os').name == 'nt' else 0
 
+
 def check_privileges():
     """Checks privileges and warns if they aren't sufficient"""
-    
+
     def is_root():
         """Returns if the app is run with sudo"""
         return os.geteuid() == 0
@@ -111,23 +105,16 @@ def check_privileges():
             logger.warn("Some functions won't work without root access, " +
                         "try running the grapheneX with sudo.")
 
-def get_os_info():
-    """Returns the operating system information"""
-    uname = platform.uname()
-    return {
-        'system': f"{uname.system} | {uname.version}",
-        'processor': f"{uname.processor} - ({uname.machine})"
-    }
-
 def get_modules():
     """Get hardening modules & namespaces in a dictionary"""
 
-    current_os="win" if check_os() else "linux"
+    current_os = "win" if check_os() else "linux"
     json_data = get_mod_json()
     return_dict = dict()
     available_modules = list()
     for namespace, modlist in json_data.items():
-        if namespace == "presets": continue
+        if namespace == "presets":
+            continue
         for module in modlist:
             module['namespace'] = namespace
             if module['target_os'] == current_os:
@@ -135,8 +122,10 @@ def get_modules():
                 available_modules.append(module)
 
         for module in available_modules:
-            return_dict[module['namespace']][module['name']] = HardenMethod(**module)
+            return_dict[module['namespace']
+                        ][module['name']] = HardenMethod(**module)
     return return_dict
+
 
 def get_forbidden_namespaces(os='win' if check_os() else 'linux'):
     """Returns the restricted namespaces depending on the operating system"""
@@ -149,6 +138,7 @@ def get_forbidden_namespaces(os='win' if check_os() else 'linux'):
     namespaces.append("presets")
     return namespaces
 
+
 def get_presets(os='win' if check_os() else 'linux'):
     """Parse and return the presets in the 'modules' file"""
 
@@ -160,6 +150,7 @@ def get_presets(os='win' if check_os() else 'linux'):
         return presets
     except KeyError:
         return None
+
 
 def get_mod_json():
     """Read the modules from file"""

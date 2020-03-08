@@ -6,10 +6,10 @@
   "commit": false,
   "contributors": [
     {
-      "login": "KeyLo99",
-      "name": "k3",
+      "login": "orhun",
+      "name": "orhun",
       "avatar_url": "https://avatars1.githubusercontent.com/u/24392180?v=4",
-      "profile": "http://k3pwn.me",
+      "profile": "https://github.com/orhun",
       "contributions": [
         "code",
         "doc",
@@ -72,6 +72,42 @@
       "profile": "http://www.emperorfederico.info",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "kondanta",
+      "name": "Taylan",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/16501501?v=4",
+      "profile": "https://github.com/kondanta",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "zero77",
+      "name": "zero77",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16563034?v=4",
+      "profile": "https://github.com/zero77",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "PerhapsSomeone",
+      "name": "Marc",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/29523614?v=4",
+      "profile": "https://privateger.me/",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "Yutyo",
+      "name": "Tan Siret G. AKINCI",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/40173707?v=4",
+      "profile": "http://mercode.org",
+      "contributions": [
+        "doc"
       ]
     }
   ],
